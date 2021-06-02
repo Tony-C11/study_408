@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int test(int a, int b);
+int test();
 
 int main(void)
 {
-    printf("%d\n", test(1.0333, 2.0333));
+    printf("%d\n", test(1));
     return 0;
 }
 
