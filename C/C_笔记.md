@@ -77,6 +77,7 @@ int main(void)
 
 ## 第九章 函数
 > 输入（参数） $\rightarrow$ （函数）处理 $\rightarrow$ 输出返回值
+
 ### 为什么需要函数
 1. 让程序**模块化**
 2. 提高程序的可读性
@@ -137,15 +138,15 @@ int functionA(int a, int b);
 > 实现原理：调用被调函数$B$时，主调函数$A$将实际参数以**函数声明时的数据类型**压入栈中，控制权转交给被调函数。
 ```C
     #include <stdio.h>
-\\
+//
     int test(int a, int b);
-\\
+//
     int main(void)
     {
         printf("%d\n", test(1.0333, 2.0333));
         return 0;
     }
-\\
+//
     int test(int a, int b)
     {
         return a + b;
@@ -163,15 +164,15 @@ int functionA(int a, int b);
 1. 不指定参数带来的弊端：
 ```C
 #include <stdio.h>
-\\
+//
 int test();
-\\
+//
 int main(void)
 {
     printf("%d\n", test(1));
     return 0;
 }
-\\
+//
 int test(int a, int b)
 {
     return a + b;
@@ -182,3 +183,14 @@ int test(int a, int b)
 2. 指定参数的数量、类型后，编译器能：
     1. 查询实际参数与形式参数的个数是否匹配
     2. 如果实际参数的类型与形式参数不同，那么会将实际参数的类型转换为形式参数的类型并赋给形式参数 
+
+### 递归
+函数自己调用自己
+> 在C语言中，函数调用自己和调用其他函数并没有区别
+
+#### 尾递归
+尾递归发生在return语句之前，相当于循环。
+
+
+
+
