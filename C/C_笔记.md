@@ -97,8 +97,9 @@ int main(void)
             ...
         }
 ```
-    
+
 > 被编译器报警告的例子：
+
 ```C
     // #include <stdio.h>
     void print(void)
@@ -106,10 +107,12 @@ int main(void)
     //    #include <stdio.h>
         print1();
     }
+
     void print1(void)
     {
         printf("HelloWorld!\n");
     }
+
     int main(void)
     {
         #include <stdio.h>
@@ -136,17 +139,18 @@ int functionA(int a, int b);
 1. 实际参数可以是 变量、常量、表达式（在求值后复制给形式参数）。
 2. 如果函数原型中有参数，在声明函数时，并不会为参数分配空间，只有在调用该函数时，才会声明变量并初始化为实际参数的值。
 > 实现原理：调用被调函数$B$时，主调函数$A$将实际参数以**函数声明时的数据类型**压入栈中，控制权转交给被调函数。
+
 ```C
     #include <stdio.h>
-//
+
     int test(int a, int b);
-//
+
     int main(void)
     {
         printf("%d\n", test(1.0333, 2.0333));
         return 0;
     }
-//
+
     int test(int a, int b)
     {
         return a + b;
@@ -162,17 +166,18 @@ int functionA(int a, int b);
 ### 额外的记录
 使用函数原型时指定参数与不指定参数：
 1. 不指定参数带来的弊端：
+
 ```C
 #include <stdio.h>
-//
+
 int test();
-//
+
 int main(void)
 {
     printf("%d\n", test(1));
     return 0;
 }
-//
+
 int test(int a, int b)
 {
     return a + b;
@@ -191,6 +196,95 @@ int test(int a, int b)
 #### 尾递归
 尾递归发生在return语句之前，相当于循环。
 
+
+## 指针
+指针用来访问内存中的数据
+
+~~指针就是地址~~
+
+指针是一种变量类型，指针变量的值是地址，指针变量的赋值方式和其他类型的变量不同。
+```C
+int num;
+int * ptr = &num;
+
+// ptr指向变量num所在的内存空间，通过 * 来使用/修改num的值，（解引用）
+```
+
+### & 和 int *
+
+**&**是（指针）常量，int * 定义的是指针变量
+
+
+## 数组
+
+### 声明数组和数组初始化
+
+> 数组长度问题
+
+```C
+// 方法一：
+#define LENGTH  5
+...
+int array_1[LENGTH] = {1, 2, 3, 4, 5};
+int array_2[10];
+// 直接指明数组的长度
+
+// 方法二：由编译器来确定数组的长度
+int array[] = {1, 2, 3, 4, 5};
+// 确定数组的长度：
+/*
+    int length = sizeof array / sizeof array[0]
+*/
+
+```
+> 数组初始化
+
+1. 如果不初始化数组，那么数组内的元素全部存储的垃圾值
+2. 如果只初始化一部分，那么剩下的元素都会被初始化为0
+3. array[0]为数组的首元素
+4. C99规定可以使用**指定初始化**：可以在初始化列表中使用带方括号的下表指明待初始化的元素：
+```C
+int array[5] = {[0] = 1, [2] = 3};
+/*
+下标：  0   1   2   3   4
+数值    1   0   0   3   0
+*/
+```
+
+> 数组越界
+
+```C
+#incldue <stdio.h>
+
+int main(void)
+{
+    int num1 = 0;
+    int array[4];
+    int num2 = 0;
+
+    array[-1] = -1;
+    array[4] = 100;
+    printf("num1 = %d, &num1 = %p\n", num1, &num1);
+    printf("num2 = %d, &num2 = %p\n", num2, &num2);
+    printf("&array[-1] = %p\n", &array[-1]);
+    printf("&array[4] = %p\n", &array[4]);
+
+
+    return 0;
+}
+
+// 会修改num1（可能），num2的值（num1应该不会被影响）
+// 查看P283 bounds.c
+```
+
+### 二维数组
+> 初始化二维数组：
+
+```C
+int array[2][2] = {{1, 2}, {3, 4}};
+```
+
+### 指针与数组
 
 
 
