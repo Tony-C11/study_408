@@ -305,4 +305,14 @@ array[1] == *(array + 1) == *(&array[1]);
  */
 ```
 
+> 函数、数组和指针
+
+以下定义能实现相同的实参接收
+
+```C
+void function(int * ptr);
+void function(int arr[]);
+void function(int []);
+```
+
 
