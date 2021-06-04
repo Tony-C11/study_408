@@ -312,7 +312,99 @@ array[1] == *(array + 1) == *(&array[1]);
 ```C
 void function(int * ptr);
 void function(int arr[]);
+// 用数组表示表示法来表示指针，在这里，int arr[]声明的是一个指针而不是一个数组，sizeof arr = 8
 void function(int []);
 ```
 
+> 用数组表示法来接收数组:
+
+```C
+include <stdio.h>
+#define WIDTH   5
+int sum(int arr[], int n);
+
+int main(void)
+{
+    int array[WIDTH] = {1, 2, 3, 4, 5};
+    int answer = sum(array, WIDTH);
+    printf("The size of array is %zd.\n", sizeof array);
+    // sizeof array 输出数组的长度
+    printf("The total number of array is %d.\n", answer);
+
+    return 0;
+}
+
+int sum(int arr[], int n)
+{
+    int count;
+    int num = 0;
+    for (count = 0; count < n; ++count)
+    {
+        num = num + arr[count];
+    }
+
+    printf("The size of arr in function sum() is %zd, so the arr is a pointer, not a array!\n", sizeof arr);
+}
+```
+![在函数声明使用指针表示法声明的仍然是指针](img/arr_ptr.png)
+
+
+使用函数处理数组需要知道：
+1. 数组首字节的地址
+2. 数组结束的位置
+
+还可以使用传递两个指针的方式来处理数组（一个指向数组首元素地址，另一个指向数组尾元素的下一个字节的地址）
+
+```C
+#incldue <stdio.h>
+#define SIZE    5
+
+int ptr_arr(int * ptr_head, int * ptr_tail);
+int main(void)
+{
+    int arr[SIZE] = {1, 2, 3, 4, 5};
+    int answer = (arr, arr + SIZE);
+    printf("answer = %d\n", answer);
+    return 0;
+}
+
+int ptr_arr(int * ptr_head, int * ptr_tail)
+{
+    int num = 0;
+    while (ptr_head < ptr_tail) 
+    // 循环结束时，ptr_head = ptr_tail，“越界”
+    {
+        num = *ptr_head++;
+    }
+
+    return num;
+}
+```
+
+> 指针的数据类型必须与所指向的数据的数据类型相匹配：
+
+```C
+#include <stdio.h>
+int main(void)
+{
+    int a = 20;
+    int * ptrInt = &a;
+    double i = 3.1415926;
+    ptrInt = &i;
+    printf("%p, %p, %d, %d, %lf\n", &i, ptrInt, sizeof(*ptrInt), *ptrInt, *ptrInt);
+    return 0;
+}
+
+```
+> 输出：
+![让整型指针指向浮点型数据](img/double_ptrInt.png)
+
+
+指针可以进行
+1. 赋值
+2. 解引用
+3. 与整数相加/相减
+4. 递增、递减（注意越界问题）
+5. 同类型指针相减（得到相差的存储单元数量）
+6. 指针与指针比较（比较的是指向的位置是否相同）
 
