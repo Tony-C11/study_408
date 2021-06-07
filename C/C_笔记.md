@@ -238,7 +238,6 @@ int array[] = {1, 2, 3, 4, 5};
 
 ```
 > 数组初始化
-
 1. 如果不初始化数组，那么数组内的元素全部存储的垃圾值
 2. 如果只初始化一部分，那么剩下的元素都会被初始化为0
 3. array[0]为数组的首元素
@@ -251,7 +250,7 @@ int array[5] = {[0] = 1, [2] = 3};
 */
 ```
 
-> 数组越界
+数组越界：
 
 ```C
 #incldue <stdio.h>
@@ -464,25 +463,44 @@ zippo[0] == &zippo[0][0];
 > 声明一个指向多维数组的指针：
 
 ```C
-int (* ptr)[2];
+int arr[3][2];
+int (* ptr)[2] = arr;
 // []比*优先级高，需要加上（），这就表示：声明一个指针，指向一个包含两个int类型元素的数组。
 ```
 
 > 下面是一种“错误”声明：
 
 ```C
-int * ptr[2];
+int * ptr[2] = arr;
 // 声明了一个数组，该数组里面有两个int * 类型的指针变量
 ```
 
+##### 二维数组的运算
+```C
+#define ROWS    3
+#define COLS    4
+...
+int arr[ROWS][COLS] = { ... };
 
-#### 二维数组的传递参数$\rightarrow$数组表示法 + 指针表示法
+arr + 1 == arr[1] == &arr[1][0];
+//  + 1 相当于：地址上 + sizeof(int) * COLS
+
+arr[0] + 1 == &arr[0][1];
+// + 1 相当于：地址上 + sizeof(int)
+```
+
+
+#### 二维数组的传递参数：数组表示法 VS 指针表示法
 
 > 数组表示法
 
 ```C
 void show_arr(int arr[][LINE], ROW);
 // 必须给出LINE
+// 第一个 [] 用于表明参数是一个指针，第二个 [] 表明指针指向多少个元素
+//-------或者---------
+
+void show_arr(int [][LINE], ROW);
 ```
 
 > 指针表示法
@@ -495,27 +513,59 @@ void show_arr(int (*p)[LINE], ROW);
 void show_arr(int (* )[LINE], ROW);
 ```
 
+> 数组表示法最终会被编译器翻译成指针表示法
+
+##### 二维数组传参的最重要的因素
+1. 知道实参从哪里开始
+> 主调函数仍然使用数组名作为参数
+2. 知道“列数”（第一个参数）
+3. 知道“行数”（第二个参数）
+
 
 ### 变长数组
 因为传统多维数组（二维数组）传参时必须给出每个”行元素“包含的“列数”，这样一来，当处理相似多维数组（“列数”改变，但要传递给的函数功能不变）时，仍需要编写其他只修改形参”列数“的函数，所以，我们引入**变长数组**的概念（可以用变量作为数组的元素个数）。
 
+> 声明变长数组：
+
+```C
+#include <stdio.h>
+
+int main(void)
+{
+    int row;
+    int col;
+    int rows;
+    int cols;
+    printf("请输入你想创建的数组的“行数”和“列数”：");
+    scanf("%d%d", &rows, &cols);
+    int arr[rows][cols];
+    // 变长数组
+
+    for (row = 0; row < rows; ++row)
+        for(col = 0; col < cols; ++col)
+        {
+            arr[row][col] = 100;        
+        }
+
+    for (row = 0; row < rows; ++row)
+    {    
+        for(col = 0; col < cols; ++col)
+        {
+            printf("%d  ", arr[row][col]);
+        }
+        putchar('\n');
+    }
+
+
+    return 0;    
+}
+```
 > 变长数组传参：
 
 ```C
 int operate_arr(int rows, int cols, int arr[rows][cols]);
+// 必须把“行数”和“列数”放在变长数组前面
 ```
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
