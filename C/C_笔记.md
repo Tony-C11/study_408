@@ -90,35 +90,35 @@ int main(void)
 
 > 注意事项：要想正确地使用函数，在使用前必须知道被调函数的类型（返回值的类型），函数的类型由函数声明来告知编译器，被调函数的声明必须放在使用该函数之前，可以放在主调函数的外面，也可以放在主调函数的里面，例如：
 ```C
-        int main(void)
-        {   ...
-            int functionA(int, int);
-            functionA(1, 2);
-            ...
-        }
+int main(void)
+{   ...
+    int functionA(int, int);
+    functionA(1, 2);
+    ...
+}
 ```
 
 > 被编译器报警告的例子：
 
 ```C
-    // #include <stdio.h>
-    void print(void)
-    {
-    //    #include <stdio.h>
-        print1();
-    }
+// #include <stdio.h>
+void print(void)
+{
+//    #include <stdio.h>
+    print1();
+}
 
-    void print1(void)
-    {
-        printf("HelloWorld!\n");
-    }
+void print1(void)
+{
+    printf("HelloWorld!\n");
+}
 
-    int main(void)
-    {
-        #include <stdio.h>
-        print();
-        return 0;
-    }
+int main(void)
+{
+    #include <stdio.h>
+    print();
+    return 0;
+}
 ```
 
 ![函数声明的位置](img/函数声明的位置.png)
@@ -141,20 +141,20 @@ int functionA(int a, int b);
 > 实现原理：调用被调函数$B$时，主调函数$A$将实际参数以**函数声明时的数据类型**压入栈中，控制权转交给被调函数。
 
 ```C
-    #include <stdio.h>
+#include <stdio.h>
 
-    int test(int a, int b);
+int test(int a, int b);
 
-    int main(void)
-    {
-        printf("%d\n", test(1.0333, 2.0333));
-        return 0;
-    }
+int main(void)
+{
+    printf("%d\n", test(1.0333, 2.0333));
+    return 0;
+}
 
-    int test(int a, int b)
-    {
-        return a + b;
-    }
+int test(int a, int b)
+{
+    return a + b;
+}
 ```
 
 
@@ -565,8 +565,12 @@ int main(void)
 ```C
 int operate_arr(int rows, int cols, int arr[rows][cols]);
 // 必须把“行数”和“列数”放在变长数组前面
+
+//--------或者----------------
+int operate_arr(int rows, int cols, int arr[*][*])
 ```
 
+> 变长数组指的是在创建数组时元素可以使用变量，变长数组创建完成后，大小保持不变（和普通数组一样）。
 
 
 
