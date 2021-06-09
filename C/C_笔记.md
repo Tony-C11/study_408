@@ -670,9 +670,134 @@ char * arr[3][20] = {"Hello, world!", "Hello, Tony!", "Hello, Alex!"};
 // 大小 = 3 × 20 = 60 Byte，每个元素的大小必须相同，并且大小不得小于最“长”字符串的大小
 ```
 
+> 定义用于接收字符串数组的形参
+
+```C
+void show_str(char * string[], int num);
+...
+int main(void)
+{
+    char * str[] = {"Hello", "world", "adsd"};
+    show_str(str, 3);
+    // str 是（指针）数组的数组名，指向首元素，而首元素是一个指针，是指向指针的指针，所以形参定义为char ** 类型。
+    ...
+}
+```
+
+### 字符串输入 / 输出
+
+| 输入      |特点   | 输出  | 特点|
+|:----:|----|:----:|----|
+|~~gets()~~ |丢弃行末输入的换行符，接收的参数只有一个：指向字符串的指针/字符串/存储字符串的数组名。因为未指定输入字符数，易造成输入越界，所以被C11标准废弃|puts() |输出时自动在行尾添加换行符|
+|fgets()    |不会丢弃行末输入的换行符，需要接收三个参数：fgets(字符串/指针/数组名, 输入的最大字符数（注意需要给'\0'留一个字节的空间）, 输入的文件来源)|fputs()|不会在行末添加换行符，需要接收两个参数：fputs(字符串/指针/数组名, 输出到哪个文件)|
+
+用于处理字符串的函数：
+使用这些函数需要先引入 string.h 头文件
 
 
+| 功能  |函数名称   | 参数 |实现特点 |
+|:----:   | :----:  | ----  |----|
+|计算字符串的长度|strlen()|strlen(数组名/指针/字符串)|计算字符串的字符个数，不包括'\0'|
+|----|----|----|----|
+|拼接   |strcat() |2个参数：strcat(指向char类型数组的指针/数组名, 要拼接的字符串的备份（字符串/指针/数组名）)|从第一个参数的'\0'的位置开始拷贝，新字符串仍以'\0'结尾，该函数返回第一个参数（一个指向字符串首字节的指针），不足之处是存在拼接后数组溢出的问题|
+|拼接|  strncat | 3个参数：strncat(指向char类型数组的指针/数组名, 要拼接的字符串的备份（字符串/指针/数组名）, 要拷贝的字符的数量)|特性和strcat()一样，新增了第三个参数N，规定了要拷贝的字符串的数量，在拷贝过程中，拷贝到空字符或拷贝完N个字符后停止拷贝
+|拼接| sprintf()|sprintf(数组/指向char类型数组的指针, "数据的格式化（%d, %s, %c, %f...）", 与第二个参数相对应的数据)|将从第二个参数开始的所有参数以字符串的形式拼接到第一个参数的后面|
+|----|----|----|----|
+|复制|strcpy()|strcpy()|将第二个参数复制到第一个参数内|
+|复制|strncpy()|strncpy()|将第二个参数的N个字符（由第三个参数指定）复制到第一个参数内|
 
 
+> 包含以上函数的程序：
+
+```C
+// 接收字符串、拼接、复制、比较（排序字符串）
+#include <stdio.h>
+#include <string.h>
+
+#define SIZE    50
+#define LEN     20
+
+void s_gets(char * str, int len);
+void sort_str(char * pStr[], int num);
+// 等价于：void sort_str(char ** pStr, int num)
+
+int main(void)
+{
+    char str1[SIZE];
+    char str2[LEN];
+    char str3[SIZE];
+    printf("请输入一个字符串：");
+    s_gets(str1, SIZE);
+    printf("你输入的字符串是：%s\n", str1);
+    
+    printf("请输入一个字符串：");
+    s_gets(str2, LEN);
+    printf("你输入的字符串是：%s\n", str2);
+    
+    strncat(str1, str2, SIZE - strlen(str1) - 1); 
+    // 留一个字符空间来存储 '\0'
+    printf("拼接完的字符串为：");
+    puts(str1);
+    
+    //puts(&str1[30]);
+    printf("向str3中放一份str1的拷贝，str3中的数据为：");
+    puts(strncpy(str3, str1, SIZE));
+
+    char * pStr[5] = {str1, str2, str3, "asdsds", "sdssdfggf"};
+    puts("排序字符串：");
+    
+    sort_str(pStr, 5);
+    // 排序的是指针，不是字符串数组
+    int count;
+    for (count = 0; count < 5; ++count)
+    {
+        puts(pStr[count]);
+    }
+
+    char str_finally[100];
+    sprintf(str_finally, "%s, %s, %s: %d, %f", pStr[0], pStr[3], pStr[4], 5, 5.5555);
+    puts(str_finally);
+    return 0;
+}
 
 
+/*
+ * 接受字符串输入
+ *
+ * */
+void s_gets(char * str, int len)
+{
+    int count = 0;
+    fgets(str, len, stdin);
+    while (str[count] != '\n' && str[count] != '\0')
+        count++;
+    if (str[count] == '\n')
+        str[count] = '\0';
+    // 为达到最大输入就换行，将换行符转换为'\0'
+    else
+        while (getchar() != '\n')
+            continue;
+        // 接收到最大输入，仍然没有结束输入，消除'\0'后的所有字符，防止这些字符残留在缓冲区内，影响下一次输入
+
+    return ;
+}
+
+void sort_str(char * pStr[], int num)
+{
+    char * temp;
+    int i, j;
+    
+    // 选择排序算法
+    for (i = 0; i < num - 1; ++i)
+        for (j = i + 1; j < num; ++j)
+        {
+            if (strcmp(pStr[i], pStr[j]) > 0)
+            {
+                temp = pStr[i];
+                pStr[i] = pStr[j];
+                pStr[j] = temp;
+            }
+        }
+    return ;
+}
+```
