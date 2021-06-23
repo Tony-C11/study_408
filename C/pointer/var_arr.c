@@ -10,7 +10,7 @@ int main(void)
     scanf("%d%d", &rows, &cols);
     int arr[rows][cols];
     // 变长数组
-
+    cols = 1000000;
     for (row = 0; row < rows; ++row)
         for(col = 0; col < cols; ++col)
         {

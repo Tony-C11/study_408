@@ -56,7 +56,7 @@ if (!fork)
     init();
 }
 
-shell 再启动其他进程
+shell再启动其他进程，启动完后再返回到shell
 ```
 
 
