@@ -1,3 +1,10 @@
+asdsdasd
+
+
+sadasdasd
+
+asdasdasasda
+asdasdasdas
 # 简单的命令操作
 
 
@@ -154,8 +161,6 @@ vim file1 file2 -p
 # 用这种方法新打开文件后，不能使用 :n 或 :N 切换文件
 # 使用 :buffer + 数字 切换文件（:buffers -> 查看文件区内有哪些文件）
 ```
+zxczxczxc
+qweqqwrwerwe
 
-```shell
-:r file1
-# 将file1的内容复制到当前文件的当前行内
-```
