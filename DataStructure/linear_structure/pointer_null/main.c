@@ -14,7 +14,7 @@ int main(void)
 
 void free_pointer(void)
 {
-    int * p = malloc(sizeof(int));
+    int * p = (int *)malloc(sizeof(int));
 
     free(p);    // break
     p = NULL;

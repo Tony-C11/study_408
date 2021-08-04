@@ -217,7 +217,7 @@ void sort_list(PNODE pHead)
         }
     }
     // 这个算法涉及“泛型”的理念
-    printf("排序完的列表如下：\n");
+    printf("排序完的链表如下：\n");
     traverse_list(pHead);
 }
 
