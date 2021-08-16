@@ -12,9 +12,9 @@ typedef struct BinaryTreeNode
 } BT_NODE, *Ptr_BT_NODE;
 
 Ptr_BT_NODE CreatBinaryTree(void);
-void PreTraverse(Ptr_BT_NODE pNode);
-void MidTraverse(Ptr_BT_NODE pNode);
-void PostTraverse(Ptr_BT_NODE pNode);
+void PreTraverse(Ptr_BT_NODE pBiTree);
+void MidTraverse(Ptr_BT_NODE pBiTree);
+void PostTraverse(Ptr_BT_NODE pBiTree);
 
 int main(void)
 {
@@ -71,30 +71,39 @@ Ptr_BT_NODE CreatBinaryTree(void)
     return pRootNode;
 }
 
-void PreTraverse(Ptr_BT_NODE pNode)
+void PreTraverse(Ptr_BT_NODE pBiTree)
 {
-    printf("%c\n", pNode->nodeData);
-    if (NULL != pNode->pLeftChild)
-        PreTraverse(pNode->pLeftChild);
-    if (NULL != pNode->pRightChild)
-        PreTraverse(pNode->pRightChild);
+    if (pBiTree)
+    {
+        printf("%c\n", pBiTree->nodeData);
+        if (NULL != pBiTree->pLeftChild)
+            PreTraverse(pBiTree->pLeftChild);
+        if (NULL != pBiTree->pRightChild)
+            PreTraverse(pBiTree->pRightChild);
+    }
 }
 
-void MidTraverse(Ptr_BT_NODE pNode)
+void MidTraverse(Ptr_BT_NODE pBiTree)
 {
-    if (NULL != pNode->pLeftChild)
-        MidTraverse(pNode->pLeftChild);
-    printf("%c\n", pNode->nodeData);
-    if (NULL != pNode->pRightChild)
-        MidTraverse(pNode->pRightChild);
+    if (pBiTree)
+    {
+        if (NULL != pBiTree->pLeftChild)
+            MidTraverse(pBiTree->pLeftChild);
+        printf("%c\n", pBiTree->nodeData);
+        if (NULL != pBiTree->pRightChild)
+            MidTraverse(pBiTree->pRightChild);
+    }
 }
 
-void PostTraverse(Ptr_BT_NODE pNode)
+void PostTraverse(Ptr_BT_NODE pBiTree)
 {
-    if (NULL != pNode->pLeftChild)
-        PostTraverse(pNode->pLeftChild);
-    if (NULL != pNode->pRightChild)
-        PostTraverse(pNode->pRightChild);
-    printf("%c\n", pNode->nodeData);
+    if (pBiTree)
+    {
+        if (NULL != pBiTree->pLeftChild)
+            PostTraverse(pBiTree->pLeftChild);
+        if (NULL != pBiTree->pRightChild)
+            PostTraverse(pBiTree->pRightChild);
+        printf("%c\n", pBiTree->nodeData);
+    }
     
 }

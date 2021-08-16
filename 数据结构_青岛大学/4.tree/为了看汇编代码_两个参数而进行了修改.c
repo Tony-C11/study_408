@@ -11,7 +11,7 @@ typedef struct biNode
     struct biNode * lChild, * rChild;
 } BiNode, *BiTree;
 
-void preOrderTraverse(BiTree pTree);
+void preOrderTraverse(BiTree pTree, int i);
 void midOrderTraverse(BiTree pTree);
 void postOrderTraverse(BiTree pTree);
 
@@ -20,13 +20,14 @@ int main(void)
     return 0;
 }
 
-void preOrderTraverse(BiTree pTree)
+void preOrderTraverse(BiTree pTree, int i)
 {
+    i = i + 2;
     if (pTree) 
     {
         printf("%c\n", pTree->data);
-        preOrderTraverse(pTree->lChild);
-        preOrderTraverse(pTree->rChild);
+        preOrderTraverse(pTree->lChild, i-1);
+        preOrderTraverse(pTree->rChild, i+1);
     }
 
     return ;
