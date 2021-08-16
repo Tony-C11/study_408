@@ -22,6 +22,7 @@ int main(void)
 
 void preOrderTraverse(BiTree pTree, int i)
 {
+    int a = 10;
     i = i + 2;
     if (pTree) 
     {
@@ -29,6 +30,7 @@ void preOrderTraverse(BiTree pTree, int i)
         preOrderTraverse(pTree->lChild, i-1);
         preOrderTraverse(pTree->rChild, i+1);
     }
+    a--;
 
     return ;
 }
