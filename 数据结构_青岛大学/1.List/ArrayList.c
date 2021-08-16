@@ -69,7 +69,11 @@ SqList initList(void)
 void deleteList(SqList * pSqList)
 {
     if (pSqList->elem) // 查看表是否存在
+    {
         free(pSqList->elem);
+        pSqList->elem = NULL;
+        pSqList->len = 0;
+    }
     else
        printf("List is not exsit!"); 
     return ;
