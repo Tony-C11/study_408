@@ -14,7 +14,7 @@ typedef struct BinaryTreeNode
 Ptr_BT_NODE CreatBinaryTree(void);
 void PreTraverse(Ptr_BT_NODE pNode);
 void MidTraverse(Ptr_BT_NODE pNode);
-void FinallyTraverse(Ptr_BT_NODE pNode);
+void PostTraverse(Ptr_BT_NODE pNode);
 
 int main(void)
 {
@@ -23,7 +23,7 @@ int main(void)
     printf("\n");
     MidTraverse(pRootNode);
     printf("\n");
-    FinallyTraverse(pRootNode);
+    PostTraverse(pRootNode);
     return 0;
 }
 
@@ -89,12 +89,12 @@ void MidTraverse(Ptr_BT_NODE pNode)
         MidTraverse(pNode->pRightChild);
 }
 
-void FinallyTraverse(Ptr_BT_NODE pNode)
+void PostTraverse(Ptr_BT_NODE pNode)
 {
     if (NULL != pNode->pLeftChild)
-        FinallyTraverse(pNode->pLeftChild);
+        PostTraverse(pNode->pLeftChild);
     if (NULL != pNode->pRightChild)
-        FinallyTraverse(pNode->pRightChild);
+        PostTraverse(pNode->pRightChild);
     printf("%c\n", pNode->nodeData);
     
 }
