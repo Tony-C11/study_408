@@ -16,18 +16,18 @@ typedef struct Stuck_Ptr
 {
     PNODE pTop;
     PNODE pBottom;
-} STUCK_PTR, *pSTUCK_PTR;
+} STACK_PTR, *pSTUCK_PTR;
 
 // 可以实现的功能：建立栈、入栈、出栈、遍历栈、清空栈
-pSTUCK_PTR initStack(void);
-void push(pSTUCK_PTR stack_pointer, int val);
-bool traverse_exstack(pSTUCK_PTR stack_pointer);
-int pop(pSTUCK_PTR stack_pointer);
-bool clear_stack(pSTUCK_PTR stack_pointer);
+pSTACK_PTR initStack(void);
+void push(pSTACK_PTR stack_pointer, int val);
+bool traverse_exstack(pSTACK_PTR stack_pointer);
+int pop(pSTACK_PTR stack_pointer);
+bool clear_stack(pSTACK_PTR stack_pointer);
 
 int main(void)
 {
-    pSTUCK_PTR stack_pointer = initStack();
+    pSTACK_PTR stack_pointer = initStack();
     push(stack_pointer, 1);
     push(stack_pointer, 2);
     push(stack_pointer, 3);
@@ -42,9 +42,9 @@ int main(void)
     return 0;
 }
 
-pSTUCK_PTR initStack(void)
+pSTACK_PTR initStack(void)
 {
-    pSTUCK_PTR stack_pointer = (pSTUCK_PTR)malloc(sizeof(STUCK_PTR));
+    pSTACK_PTR stack_pointer = (pSTUCK_PTR)malloc(sizeof(STUCK_PTR));
     
     // 建立一个栈底结点（不是有效结点），方便操作
     stack_pointer->pBottom = (PNODE)malloc(sizeof(NODE)); 
@@ -56,7 +56,7 @@ pSTUCK_PTR initStack(void)
 }
 
 // 1. 让新入栈的结点指向上一个结点  2. 让pTop指向栈顶（新入栈的结点）
-void push(pSTUCK_PTR stack_pointer, int val)
+void push(pSTACK_PTR stack_pointer, int val)
 {
     PNODE pNew = (PNODE)malloc(sizeof(NODE));
     pNew->val = val;
@@ -66,7 +66,7 @@ void push(pSTUCK_PTR stack_pointer, int val)
     return ;
 }
 
-bool traverse_stack(pSTUCK_PTR stack_pointer)
+bool traverse_stack(pSTACK_PTR stack_pointer)
 {
     if (stack_pointer->pTop == stack_pointer->pBottom)
     {
@@ -85,7 +85,7 @@ bool traverse_stack(pSTUCK_PTR stack_pointer)
 }
 
 // 出栈不涉及改变栈中结点的指向问题（入栈涉及...），只涉及改变pTop的指向问题
-int pop(pSTUCK_PTR stack_pointer)
+int pop(pSTACK_PTR stack_pointer)
 {
     int pop_val;
     if (stack_pointer->pTop == stack_pointer->pBottom)
@@ -103,7 +103,7 @@ int pop(pSTUCK_PTR stack_pointer)
     return pop_val;
 }
 
-bool clear_stack(pSTUCK_PTR stack_pointer)
+bool clear_stack(pSTACK_PTR stack_pointer)
 {
     if (stack_pointer->pTop == stack_pointer->pBottom)
     {
@@ -133,7 +133,7 @@ void push(PNODE pTop, int val);
 int main(void)
 {
     ...
-    pSTUCK_PTR stack_pointer = initStack();
+    pSTACK_PTR stack_pointer = initStack();
     push(stack_pointer->pTop, 1);
     ...
 }
