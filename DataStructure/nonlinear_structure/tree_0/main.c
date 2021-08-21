@@ -21,9 +21,6 @@ int main(void)
     Ptr_BT_NODE pRootNode = CreatBinaryTree();
     PreTraverse(pRootNode);
     printf("\n");
-    MidTraverse(pRootNode);
-    printf("\n");
-    PostTraverse(pRootNode);
     return 0;
 }
 
@@ -76,10 +73,8 @@ void PreTraverse(Ptr_BT_NODE pBiTree)
     if (pBiTree)
     {
         printf("%c\n", pBiTree->nodeData);
-        if (NULL != pBiTree->pLeftChild)
-            PreTraverse(pBiTree->pLeftChild);
-        if (NULL != pBiTree->pRightChild)
-            PreTraverse(pBiTree->pRightChild);
+        PreTraverse(pBiTree->pLeftChild);
+        PreTraverse(pBiTree->pRightChild);
     }
 }
 
