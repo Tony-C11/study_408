@@ -102,11 +102,24 @@ mkdir A_{1..5}-C
 
 
 
+# 管道
+
+```shell
+A | B
+# 创建两个进程A B，把A的输出作为B的输入
+
+man gcc |& vim -
+
+objdump -d a.out | less
+```
 
 
 
 
 
+
+
+# 正则表达式
 
 
 
