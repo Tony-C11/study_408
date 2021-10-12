@@ -1,0 +1,223 @@
+/home/tony/Projects/Github
+└── study_408
+    ├── 编码
+    │   ├── code.md
+    │   └── img
+    │       ├── 半加器.jpg
+    │       ├── 第一个全加器.jpg
+    │       ├── 二进制乘法.jpg
+    │       ├── 反向器.jpg
+    │       ├── 或非门与继电器.jpg
+    │       ├── 或门的继电器并联图.jpg
+    │       ├── 继电器与灯泡回路.jpg
+    │       ├── 继电器.jpg
+    │       ├── 门.jpg
+    │       ├── 全加器.jpg
+    │       ├── 输出变成不允许的输入.jpg
+    │       ├── 用来处理两个16位二进制数相加的加法器.jpg
+    │       ├── 与非门与继电器.jpg
+    │       ├── 与门的继电器串联图.jpg
+    │       ├── 振荡器.jpg
+    │       ├── 最后一个全加器.jpg
+    │       ├── 最终能实现两个8位二进制数相加的加法器.jpg
+    │       ├── XOR_1.jpg
+    │       └── XOR_2.jpg
+    ├── 数据结构_青岛大学
+    │   ├── 1.List
+    │   │   ├── 案例分析
+    │   │   │   ├── 稀疏多项式求和-链表实现.c
+    │   │   │   ├── 稀疏多项式求和.c
+    │   │   │   └── a.out
+    │   │   ├── a.out
+    │   │   ├── ArrayList.c
+    │   │   ├── BidirectionalLinkList.c
+    │   │   ├── LinkList.c
+    │   │   └── problems
+    │   │       ├── 两个有序表的合并-顺序表的实现.c
+    │   │       ├── 两个有序表的合并-用链表实现.c
+    │   │       ├── 无序表的合并.c
+    │   │       └── a.out
+    │   ├── 2.StackAndQueue
+    │   │   ├── a.out
+    │   │   ├── CircularQueue.c
+    │   │   ├── LinkQueue.c
+    │   │   ├── LinkStack.c
+    │   │   └── SqStack.c
+    │   ├── 3.string_array_generalizedTable
+    │   │   ├── 字符数组和字符串.c
+    │   │   ├── a.out
+    │   │   ├── BF.c
+    │   │   └── string_1.c
+    │   ├── 4.tree
+    │   │   ├── 为了看汇编代码_两个参数而进行了修改.c
+    │   │   ├── 为了看汇编代码_两个参数而进行了修改.s
+    │   │   ├── a.out
+    │   │   ├── LinkTree1.asm
+    │   │   ├── LinkTree.c
+    │   │   └── LinkTree.s
+    │   ├── 数据结构
+    │   │   ├── 1.线性表.md
+    │   │   ├── 2.栈和队列.md
+    │   │   ├── 3.串、数组和广义表.md
+    │   │   ├── 4.树.md
+    │   │   ├── 数据结构.xmind
+    │   │   ├── 未完成.md
+    │   │   ├── image
+    │   │   │   ├── 1.png
+    │   │   │   ├── 2.png
+    │   │   │   ├── 串的术语.jpg
+    │   │   │   ├── 二叉树遍历算法.jpg
+    │   │   │   ├── 二叉树遍历与表达式.jpg
+    │   │   │   ├── 二叉树的顺序存储.jpg
+    │   │   │   ├── 二叉树和树的区别.jpg
+    │   │   │   ├── 二叉树结点和空指针域的关系.jpg
+    │   │   │   ├── 二叉树顺序存储的缺点.jpg
+    │   │   │   ├── 判断是否为完全二叉树.jpg
+    │   │   │   ├── 树的表示.jpg
+    │   │   │   ├── 顺序表的算法分析.jpg
+    │   │   │   ├── 顺序表的特点.jpg
+    │   │   │   ├── 顺序表的优缺点.jpg
+    │   │   │   ├── 顺序栈.jpg
+    │   │   │   ├── 完全二叉树结点和深度之间的关系.jpg
+    │   │   │   ├── 先序遍历算法图解.jpg
+    │   │   │   ├── 叶子结点个数和度为2的结点的关系.jpg
+    │   │   │   ├── 用链表实现有序表的合并_最终效果.jpg
+    │   │   │   └── BF.webp
+    │   │   ├── note.md
+    │   │   └── v2-c217cea2a7b751e0eea6a2894fdea011_b.webp
+    │   ├── a.out
+    │   └── DeepinScreenshot_select-area_20210805142508.png
+    ├── C
+    │   ├── C_笔记.md
+    │   ├── file_io
+    │   │   ├── 1.txt
+    │   │   ├── 1.txt.c
+    │   │   ├── a.out
+    │   │   └── fopen.c
+    │   ├── function
+    │   │   ├── a.out
+    │   │   ├── binary.c
+    │   │   ├── Factorial.c
+    │   │   ├── FloatDouble.c
+    │   │   ├── lethead.c
+    │   │   ├── recursion.c
+    │   │   └── warning.c
+    │   ├── img
+    │   │   ├── 函数声明的位置.png
+    │   │   ├── arr_ptr.png
+    │   │   ├── double_ptrInt.png
+    │   │   ├── string.png
+    │   │   └── string_ptr_arr.png
+    │   ├── OperateFiles
+    │   │   ├── 1.txt
+    │   │   ├── a.out
+    │   │   ├── ioInfo.c
+    │   │   ├── main.c
+    │   │   └── scanf_getchar.c
+    │   ├── pointer
+    │   │   ├── 1.c
+    │   │   ├── 多维数组.c
+    │   │   ├── a.out
+    │   │   ├── arr_ptr.c
+    │   │   ├── const.c
+    │   │   ├── test.c
+    │   │   └── var_arr.c
+    │   └── string
+    │       ├── gets_s.c
+    │       └── string_ptr_arr.c
+    ├── DataStructure
+    │   ├── 1.pdf
+    │   ├── linear_structure
+    │   │   ├── 数据结构（线性结构）.md
+    │   │   ├── img
+    │   │   │   └── FullQueue.png
+    │   │   ├── LinkList
+    │   │   │   ├── a.out
+    │   │   │   └── main.c
+    │   │   ├── pointer_null
+    │   │   │   ├── a.out
+    │   │   │   ├── main
+    │   │   │   └── main.c
+    │   │   ├── Queue
+    │   │   │   ├── ArrayQueue
+    │   │   │   │   ├── main
+    │   │   │   │   └── main.c
+    │   │   │   └── QueueNote
+    │   │   │       └── img
+    │   │   │           └── FullQueue.png
+    │   │   ├── recursion
+    │   │   │   ├── accumulation
+    │   │   │   │   ├── main
+    │   │   │   │   └── main.c
+    │   │   │   ├── factorial
+    │   │   │   │   ├── main
+    │   │   │   │   └── main.c
+    │   │   │   └── Hanoi
+    │   │   │       ├── main
+    │   │   │       └── main.c
+    │   │   ├── stack
+    │   │   │   └── LinkListStack
+    │   │   │       ├── main
+    │   │   │       ├── main.c
+    │   │   │       └── stackDataStructure.png
+    │   │   └── write_functions
+    │   │       ├── a.out
+    │   │       └── main.c
+    │   ├── nonlinear_structure
+    │   │   ├── 数据结构_非线性结构.md
+    │   │   ├── img
+    │   │   │   └── tree_0.png
+    │   │   └── tree_0
+    │   │       ├── a.out
+    │   │       ├── main
+    │   │       ├── main.c
+    │   │       └── main.s
+    │   └── QuickSort
+    │       ├── main
+    │       └── main.c
+    ├── Linux
+    │   ├── demo
+    │   │   ├── A_1-C
+    │   │   ├── A_2-C
+    │   │   ├── A_3-C
+    │   │   ├── A_4-C
+    │   │   ├── A_5-C
+    │   │   └── test
+    │   ├── img
+    │   │   └── 转义字符.png
+    │   └── linux_note.md
+    ├── makefile的编写
+    │   ├── main.c
+    │   ├── makefile
+    │   ├── mk1
+    │   ├── mk2
+    │   ├── tool1.c
+    │   └── tool2.c
+    ├── OS
+    │   ├── class_1
+    │   │   ├── 1.md
+    │   │   └── 实验1.md
+    │   ├── class_2
+    │   │   ├── 2.md
+    │   │   ├── code
+    │   │   │   ├── main
+    │   │   │   └── main.c
+    │   │   └── image
+    │   │       ├── os_interface_1.png
+    │   │       └── SystemCall.png
+    │   ├── class_3
+    │   │   ├── 多进程和CPU.md
+    │   │   └── img
+    │   │       ├── 并发.png
+    │   │       ├── OS组织进程.jpg
+    │   │       └── switch_to.jpg
+    │   ├── class_4
+    │   │   ├── class_4.md
+    │   │   └── tree.txt
+    │   └── CLK-5.0-WithCover.pdf
+    ├── README.md
+    └── study_vim
+        ├── tutor.txt
+        └── vimTutor.txt
+
+58 directories, 162 files
