@@ -13,11 +13,9 @@ int main(void)
             char cmd[100];
             scanf("%s", cmd);
         }
-        else
-        {
-            printf("Linux> ");
-            wait(NULL);
-        }
+        printf("Linux> ");
+        wait(NULL);
+        printf("pid = %d\n", getpid());
     }
 
     return 0;
