@@ -2,21 +2,33 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+static char buffer[100];
+
 int main(void)
 {
-
-    while (1)
+    // while (1)
     {
         int rc = fork();
-        if (rc == 0)
+
+        if (rc < 0)
         {
-            char cmd[100];
-            scanf("%s", cmd);
         }
-        printf("Linux> ");
-        wait(NULL);
-        printf("pid = %d\n", getpid());
+        else if (rc == 0)
+        {
+            while (getchar() != '\n')
+                continue;
+            scanf("%s", buffer);
+            while (getchar() != '\n')
+                continue;
+        }
+        else 
+        {
+            printf("linux > \n");
+        //    wait(NULL);
+        }
+            
     }
+
 
     return 0;
 }
