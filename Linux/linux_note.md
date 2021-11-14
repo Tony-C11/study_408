@@ -1,3 +1,6 @@
+terminal（例如：alacrity, deepin_terminal -> Linux下通过Ctrl + Alt + T打开） -> 终端，接收键盘输入 -> 将输入发送到终端命令解析器（shell，如：bash, zsh, fish）-> shell执行相关程序
+
+
 # 简单的命令操作
 
 
