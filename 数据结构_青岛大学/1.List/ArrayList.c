@@ -33,11 +33,11 @@ int main(void)
     SqList list = initList();
 
     char i = 'a';
-    for (int count = 0; count < 10; ++ count)
+    for (int count = 0; count < 10; ++count)
     {
         list.elem[count] = i;
-        ++ i;
-        ++ list.len;
+        ++i;
+        ++list.len;
     }
 
     insertElem(&list, 11, 'w');
@@ -81,7 +81,7 @@ void deleteList(SqList * pSqList)
 
 bool locateElem(SqList * pSqList, Elemtype e)
 {
-    for (int index = 0; index < pSqList->len - 1; ++ index)
+    for (int index = 0; index < pSqList->len - 1; ++index)
     {
         if (e == pSqList->elem[index])
             return index + 1;
@@ -130,7 +130,7 @@ Elemtype deleteElem(SqList * pSqList, int position)
 
     Elemtype e = pSqList->elem[position - 1];
 
-    for (int index = position - 1; index < pSqList->len; ++ index)
+    for (int index = position - 1; index < pSqList->len; ++index)
     {
         pSqList->elem[index] = pSqList->elem[index + 1]; 
     }
@@ -142,7 +142,7 @@ Elemtype deleteElem(SqList * pSqList, int position)
 
 void traversePrintList(SqList * pSqList)
 {
-    for (int count = 0; count < pSqList->len; ++ count)
+    for (int count = 0; count < pSqList->len; ++count)
     {
         printf("%c  ", pSqList->elem[count]);
     }
